@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 from mcclient import Server
 from utils import CONFIG, SET_CONFIG, format_statistics
 
