@@ -25,7 +25,7 @@ def stats():
 
 @web_site.route('/github')
 def github():
-    return 'No Github Repo at this time.'
+    return redirect('https://github.com/GrandMoff100/EnjoyableCraft')
 
 @web_site.route('/apply')
 def apply_redirect():
