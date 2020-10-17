@@ -30,11 +30,11 @@ def stats():
 
 @web_site.route('/github')
 def github():
-    return redirect('https://github.com/GrandMoff100/EnjoyableCraft')
+    return redirect(CONFIG()['GITHUB'])
 
 @web_site.route('/apply')
 def apply_redirect():
-    return 'Not functional at the moment.\nContact Nate'
+    return redirect(CONFIG()['APPLY_FORM'])
 
 @web_site.route('/highlights')
 def highlights():
