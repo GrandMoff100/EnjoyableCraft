@@ -1,5 +1,5 @@
 import json
-from mcclient import PlayerClient
+import os
 
 
 def CONFIG():
@@ -19,7 +19,8 @@ def format_statistics(info):
         info['motd'] = str(repr(info['motd']['text']))
         print(info['serverStatus'])
         info['status_color'] = 'green' if info['serverStatus'] == 'online' else 'red'
-        info['serverStatus'] = 'True' if info['serverStatus'] == 'online' else 'False'
+
+        info['serverStatus'] = 'Online' if info['serverStatus'] == 'online' else 'Offline'
     except Exception:
         pass
     return info
@@ -45,3 +46,32 @@ def REMOVE_PLAYER(playername):
     if playername in players:
         del playername
     WRITE_PLAYERS(players)
+
+
+class Notifier:
+    def __init__(self, file):
+        self.directory, self.name = os.path.split(file)
+
+        self.log = open(self.file, 'a+')
+        
+    @property
+    def file(self):
+        return os.path.join(self.directory, self.name)
+    
+    def notify(self, message, method='local'):
+        if method == 'local':
+            print(message)
+        elif method == 'discord':
+            self.discord_notify(message)
+        elif method == 'admin':
+            pass
+
+    
+    def discord_notify(message):
+        pass
+    
+    def admin_notify(message):
+        pass
+    
+    def recent_admin_events(self):
+        return self.log.read()
