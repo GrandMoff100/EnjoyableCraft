@@ -12,7 +12,10 @@ client = PlayerClient()
 
 @web_site.route('/')
 def index():
-	return render_template('index.html', motd=server.motd)
+	return render_template(
+        'index.html', 
+        motd=server.motd
+        )
 
 @web_site.route('/players')
 def players():
@@ -33,6 +36,10 @@ def github():
 @web_site.route('/apply')
 def apply_redirect():
     return 'Not functional at the moment.\nContact Nate'
+
+@web_site.route('/highlights')
+def highlights():
+    return 'No highlights yet, sorry :('
 
 
 @web_site.route('/api/config')
