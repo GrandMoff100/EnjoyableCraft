@@ -1,12 +1,13 @@
 from flask import Flask, render_template, request, redirect
-from mcclient import Server
-from utils import CONFIG, SET_CONFIG, format_statistics
+from mcclient import Server, PlayerClient
+from utils import CONFIG, SET_CONFIG, format_statistics, ADD_PLAYER, REMOVE_PLAYER, PLAYERS
 
 
 web_site = Flask(__name__)
 
 
 server = Server(CONFIG()['IP'])
+client = PlayerClient()
 
 
 @web_site.route('/')
@@ -15,7 +16,9 @@ def index():
 
 @web_site.route('/players')
 def players():
-    return render_template('players.html')
+    players = PLAYERS()
+    objs = [[client.get_player(player), permissions] for player, permissions in players.items()]
+    return render_template('players.html', objs=objs)
 
 @web_site.route('/stats')
 def stats():
@@ -31,6 +34,36 @@ def github():
 def apply_redirect():
     return 'Not functional at the moment.\nContact Nate'
 
+
+@web_site.route('/api/config')
+def api_config():
+    if request.method == 'GET':
+        return CONFIG()
+    elif request.method == 'POST':
+        try:
+            SET_CONFIG(request.headers.get('config_key'), request.headers.get('config_val'))
+            return '200 Ok'
+        except KeyError as err:
+            return str(err)
+    else:
+        return 'Invalid Request Method'
+
+@web_site.route('/api/players')
+def api_players():
+    if request.method == 'GET':
+        return PLAYERS()
+    elif request.method == 'POST':
+        try:
+            ADD_PLAYER(request.headers.get('player'))
+        except KeyError as err:
+            return str(err)
+    elif request.method == 'DELETE':
+        try:
+            REMOVE_PLAYER(request.headers.get('player'))
+        except KeyError as err:
+            return str(err)
+    else:
+        return 'Invalid Request Method'
 
 if __name__ == '__main__':
     web_site.run(host='0.0.0.0', port=8080)

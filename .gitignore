@@ -4,3 +4,8 @@ venv/
 
 *.pyc
 .replit
+
+*.toml
+poetry.lock
+
+*.json

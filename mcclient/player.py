@@ -50,13 +50,3 @@ class Player:
     
     def __str__(self):
         return self.name
-
-
-
-playerclient = PlayerClient()
-
-print(playerclient.get_player('Redstone_genius_'))
-
-print(playerclient.player_cache)
-
-print(playerclient.get_player('Redstone_Genius_'))
