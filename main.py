@@ -13,8 +13,7 @@ client = PlayerClient()
 @web_site.route('/')
 def index():
 	return render_template(
-        'index.html', 
-        motd=server.motd
+        'index.html'
         )
 
 @web_site.route('/players')
@@ -60,17 +59,17 @@ def api_players():
     if request.method == 'GET':
         return PLAYERS()
     elif request.method == 'POST':
-        try:
-            ADD_PLAYER(request.headers.get('player'))
-        except KeyError as err:
-            return str(err)
+        ADD_PLAYER(request.headers.get('player'))
     elif request.method == 'DELETE':
-        try:
-            REMOVE_PLAYER(request.headers.get('player'))
-        except KeyError as err:
-            return str(err)
+        REMOVE_PLAYER(request.headers.get('player'))
     else:
         return 'Invalid Request Method'
+
+
+@web_site.route('/admin')
+def admin():
+    return 'Admin page'
+
 
 if __name__ == '__main__':
     web_site.run(host='0.0.0.0', port=8080)
