@@ -7,5 +7,3 @@ venv/
 
 *.toml
 poetry.lock
-
-*.json
