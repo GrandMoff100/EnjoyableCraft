@@ -1,5 +1,8 @@
 {
     "IP": "mortis.servegame.org:25566",
     "APPLY_FORM": "https://forms.gle/mwMfaRpKsV2HKAwd7",
-    "GITHUB": "https://github.com/GrandMoff100/EnjoyableCraft"
+    "GITHUB": "https://github.com/GrandMoff100/EnjoyableCraft",
+    "RESPONSES_ID": "14FMarvDweyBZaUki-pCjiA6iNsjUtLY0Hy7beoULmpQ",
+    "RESPONSES_NAME": "EnjoyableCraft Member Application (Responses)",
+    "HEROKU": "https://dashboard.heroku.com/apps/enjoyablecraft"
 }
