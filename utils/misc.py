@@ -5,14 +5,8 @@ from .config import CONFIG, SET_CONFIG
 
 
 def format_statistics(info):
-    try:
-        info['motd'] = str(repr(info['motd']['text']))
-        print(info['serverStatus'])
-        info['status_color'] = 'green' if info['serverStatus'] == 'online' else 'red'
-
-        info['serverStatus'] = 'Online' if info['serverStatus'] == 'online' else 'Offline'
-    except Exception:
-        pass
+    info['status_color'] = 'green' if info['serverStatus'] == 'online' else 'red'
+    info['serverStatus'] = 'Online' if info['serverStatus'] == 'online' else 'Offline'
     return info
 
 def get_form_json():
