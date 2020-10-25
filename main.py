@@ -3,6 +3,7 @@ from mcclient import Server, PlayerClient
 from utils import CONFIG, SET_CONFIG, format_statistics, ADD_PLAYER, REMOVE_PLAYER, PLAYERS, get_form_json, CONFIG_VIEW
 import requests as r
 import json
+import urllib.parse
 
 
 web_site = Flask(__name__)
@@ -88,7 +89,6 @@ def admin():
 @web_site.route('/heroku')
 def heroku():
     return redirect(CONFIG()['HEROKU'])
-
 
 if __name__ == '__main__':
     web_site.run(host='0.0.0.0', port=8080)
