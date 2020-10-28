@@ -7,6 +7,7 @@ from .config import CONFIG, SET_CONFIG
 def format_statistics(info):
     info['status_color'] = 'green' if info['serverStatus'] == 'online' else 'red'
     info['serverStatus'] = 'Online' if info['serverStatus'] == 'online' else 'Offline'
+    info['motd'] = info['motd']['text']
     return info
 
 def get_form_json():
