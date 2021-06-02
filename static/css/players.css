@@ -367,8 +367,8 @@ p {
 
 .banner {
   height: 100%;
-  background-image: url("../img/fortress-rtx.jpg"), linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
-  background-position: 50% 100%, 0px 0px;
+  background-image: url("../img/clipped-fortress.jpg"), linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  background-position: 50% 50%, 0px 0px;
   background-size: auto, auto;
 }
 
