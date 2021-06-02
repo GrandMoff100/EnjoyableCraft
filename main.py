@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, abort
 from mcclient import Server, PlayerClient
 from utils import CONFIG, SET_CONFIG, format_statistics, ADD_PLAYER, REMOVE_PLAYER, PLAYERS, get_form_json, CONFIG_VIEW
 import requests as r
@@ -53,7 +53,7 @@ def api_config():
 @web_site.route('/api/config/<auth_token>', methods=['POST'])
 def api_set_config(auth_token):
     if auth_token != os.getenv('AUTH_TOKEN'):
-        return '400 Unauthorized'
+        return abort(403, description='Unauthorized')
     try:
         SET_CONFIG(request.headers['config_key'], request.headers['config_val'])
         return '200 Ok'
