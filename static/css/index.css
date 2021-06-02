@@ -235,7 +235,7 @@ p {
   display: block;
   padding-top: 127px;
   padding-bottom: 127px;
-  background-image: url("https://uploads-ssl.webflow.com/5f837cd47ffe952bc17ad642/5f83869471b1e85c46a7ea72_download.jpeg");
+  background-image: url("../img/stone_wall.jpeg");
   background-size: contain;
   background-clip: padding-box;
 }
@@ -305,7 +305,7 @@ p {
 .slide {
   padding-top: 80px;
   padding-bottom: 80px;
-  background-image: url("https://uploads-ssl.webflow.com/5f837cd47ffe952bc17ad642/5f837cd476d910d4b132e82d_ocean.jpg");
+  background-image: url("../img/ocean.jpg");
   background-position: 50% 50%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -313,11 +313,11 @@ p {
 }
 
 .slide._2 {
-  background-image: url("https://uploads-ssl.webflow.com/5f837cd47ffe952bc17ad642/5f837cd476d9102ec732e830_city.jpg");
+  background-image: url("../img/city.jpg");
 }
 
 .slide._3 {
-  background-image: url("https://uploads-ssl.webflow.com/5f837cd47ffe952bc17ad642/5f837cd476d910c76e32e82e_town.jpg");
+  background-image: url("../img/town.jpg");
 }
 
 .process-titles {

@@ -367,9 +367,8 @@ p {
 
 .banner {
   height: 100%;
-  background-image: url("https://uploads-ssl.webflow.com/5f872632b995023063ecedc4/5f8726f76b74262c72b416ca_fortress-rtx.jpg"), -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5)));
-  background-image: url("https://uploads-ssl.webflow.com/5f872632b995023063ecedc4/5f8726f76b74262c72b416ca_fortress-rtx.jpg"), linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
-  background-position: 50% 100%, 0px 0px;
+  background-image: url("../img/clipped-fortress.jpg"), linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  background-position: 50% 50%, 0px 0px;
   background-size: auto, auto;
 }
 
