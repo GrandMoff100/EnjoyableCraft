@@ -16,19 +16,19 @@ class Server:
     def __init__(self, ip, cache_timeout=60):
         self.cache_timeout = cache_timeout
         self.ip = ip
-    
+
     def get(self, attr):
         return self.get_status().get(attr)
-    
+
     @property
     def ping(self):
         return self.get('ping')
-    
+
     @property
     def motd(self):
         try:
-            return self.get('motd').get('text')
-        except:
+            return self.get('motd')['text']
+        except KeyError:
             return self.get('motd')
 
     @property
@@ -46,15 +46,15 @@ class Server:
     @property
     def ipv4(self):
         return self.get('serverip')
-    
+
     @property
     def protocol(self):
         return self.get('protocol')
-    
+
     @property
     def players(self):
         return self.get('players')
-    
+
     @property
     def maxplayers(self):
         return self.get('maxplayers')
@@ -73,5 +73,3 @@ class Server:
         url = os.path.join(SERVER_HOST, 'server', 'ping', self.ip)
         url = os.path.join(SERVER_API, urllib.parse.quote(self.ip), 'full', 'json')
         return r.get(url).json()
-
-

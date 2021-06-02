@@ -1,7 +1,5 @@
-import json
-import os
 import requests as r
-from .config import CONFIG, SET_CONFIG
+from .config import CONFIG
 
 
 def format_statistics(info):
@@ -11,8 +9,9 @@ def format_statistics(info):
         info['motd'] = info['motd']['text']
     except KeyError:
         pass
-    
+
     return info
+
 
 def get_form_json():
     ID = CONFIG()['RESPONSES_ID']
