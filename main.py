@@ -9,7 +9,10 @@ import os
 web_site = Flask(__name__)
 
 
-server = lambda: Server(CONFIG()['IP'])
+def server():
+    return Server(CONFIG()['IP'])
+
+
 client = PlayerClient()
 
 
@@ -59,7 +62,6 @@ def api_set_config(auth_token):
         return '200 Ok'
     except KeyError as err:
         return str(err)
-
 
 
 @web_site.route('/api/players', methods=['GET'])
