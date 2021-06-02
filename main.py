@@ -9,7 +9,7 @@ import os
 web_site = Flask(__name__)
 
 
-server = Server(CONFIG()['IP'])
+server = lambda: Server(CONFIG()['IP'])
 client = PlayerClient()
 
 
@@ -27,7 +27,7 @@ def players():
 
 @web_site.route('/stats')
 def stats():
-    return render_template('stats.html', IP=CONFIG()['IP'], **format_statistics(server.get_status()))
+    return render_template('stats.html', IP=CONFIG()['IP'], **format_statistics(server().get_status()))
 
 
 @web_site.route('/github')
@@ -55,7 +55,7 @@ def api_set_config(auth_token):
     if auth_token != os.getenv('AUTH_TOKEN'):
         return '400 Unauthorized'
     try:
-        SET_CONFIG(request.headers.get('config_key'), request.headers.get('config_val'))
+        SET_CONFIG(request.headers['config_key'], request.headers['config_val'])
         return '200 Ok'
     except KeyError as err:
         return str(err)
