@@ -3,6 +3,7 @@ from mcclient import Server, PlayerClient
 from utils import CONFIG, SET_CONFIG, format_statistics, ADD_PLAYER, REMOVE_PLAYER, PLAYERS, get_form_json, CONFIG_VIEW
 import requests as r
 import json
+import os
 
 
 web_site = Flask(__name__)
@@ -49,13 +50,16 @@ def api_config():
     return CONFIG()
 
 
-@web_site.route('/api/config/<key>', methods=['POST'])
-def api_set_config(key):
+@web_site.route('/api/config/<auth_token>', methods=['POST'])
+def api_set_config(auth_token):
+    if auth_token != os.getenv('AUTH_TOKEN'):
+        return '400 Unauthorized'
     try:
         SET_CONFIG(request.headers.get('config_key'), request.headers.get('config_val'))
         return '200 Ok'
     except KeyError as err:
         return str(err)
+
 
 
 @web_site.route('/api/players', methods=['GET'])
