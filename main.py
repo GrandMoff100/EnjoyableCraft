@@ -60,6 +60,10 @@ def api_set_config(auth_token):
     except KeyError as err:
         return str(err)
 
+    
+@web_site.route('/api/ip', methods=['GET'])
+def api_get_ip():
+    return request.remote_addr
 
 
 @web_site.route('/api/players', methods=['GET'])
