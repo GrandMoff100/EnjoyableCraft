@@ -1,9 +1,8 @@
-from flask import Flask, render_template, request, redirect, jsonify
+from flask import Flask, render_template, request, redirect
 from mcclient import Server, PlayerClient
 from utils import CONFIG, SET_CONFIG, format_statistics, ADD_PLAYER, REMOVE_PLAYER, PLAYERS, get_form_json, CONFIG_VIEW
 import requests as r
 import json
-import urllib.parse
 
 
 web_site = Flask(__name__)
