@@ -1,7 +1,7 @@
 name: Flake8 Master
 
 on:
-  pull_request_target:
+  push:
     paths:
       - '*.py'
     branches:
