@@ -2,8 +2,6 @@ name: Flake8 Master
 
 on:
   push:
-    paths:
-      - '*.py'
     branches:
       - master
 
