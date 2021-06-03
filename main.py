@@ -61,7 +61,7 @@ def api_set_config(auth_token):
         SET_CONFIG(request.headers['config_key'], request.headers['config_val'])
         return '200 Ok'
     except KeyError as err:
-        return str(err)
+        return abort(400, description=str(err))
 
 
 @web_site.route('/api/players', methods=['GET'])
