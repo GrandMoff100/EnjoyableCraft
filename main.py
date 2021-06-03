@@ -50,7 +50,10 @@ def highlights():
 
 @web_site.route('/api/config', methods=['GET'])
 def api_config():
-    return CONFIG()
+    return json.dumps(
+        CONFIG(),
+        indent=4
+    )
 
 
 @web_site.route('/api/config/<auth_token>', methods=['POST'])
@@ -66,7 +69,10 @@ def api_set_config(auth_token):
 
 @web_site.route('/api/players', methods=['GET'])
 def api_players():
-    return PLAYERS()
+    return json.dumps(
+        PLAYERS(),
+        indent=4
+    )
 
 
 @web_site.route('/api/players/<player>', methods=['POST', 'DELETE'])
